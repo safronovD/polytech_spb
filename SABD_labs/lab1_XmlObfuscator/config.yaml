@@ -1,0 +1,7 @@
+source: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+target: L3wyGcxahEroQXZdfAPJqnCVUpt2eMW6Sv0YIkbRgK1O7HuFNlT459jzBmsDi8
+obfuscate_input_file: obfuscate_input_file.xml
+obfuscate_output_file: obfuscate_output_file.xml
+unobfuscate_input_file: obfuscate_output_file.xml
+unobfuscate_output_file: unobfuscate_output_file.xml
+work_dir: data

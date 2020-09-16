@@ -1,3 +1,7 @@
+## Dependencies
+
+Java 14, Docker 19
+
 ## Usage
 
 ```ShellSession
