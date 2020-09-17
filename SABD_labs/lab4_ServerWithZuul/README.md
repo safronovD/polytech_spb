@@ -14,5 +14,4 @@ cd client
 gradlew bootRun
 ```
 
-Add "server.p12" in system
-Go https://localhost:8080/gateway/server-data
+Go http://localhost:8080/

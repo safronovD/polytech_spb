@@ -17,8 +17,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	compile 'org.apache.httpcomponents:httpcore',
-			'org.apache.httpcomponents:httpclient'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 }
 
 test {
