@@ -4,7 +4,7 @@
 #include <omp.h>
 
 #define THREADS_NUM 4
-#define GROUPS_NUM 250000
+#define GROUPS_NUM 1000000
 
 void createMatrix (int groups_num, std::vector<std::vector<int>> &matrix) {
     int min_mark = 3;
@@ -70,5 +70,3 @@ int main() {
 
     //printResult(std::cout, matrix, mean_groups, sum / matrix.size());
 }
-
-
