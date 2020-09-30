@@ -66,29 +66,27 @@ int main (int argc, char *argv[]) {
     });
     std::cout << " Result: " << result << "\n";
 
-
-    MPI_Barrier(MPI_COMM_WORLD);
-    double total_mpi_bcast_time = 0;
+    double total_time = 0;
     if (rank == 0 ) std::cout << "Data size = " << data_len << " Trials = " << num_trials << "\n";
 
     for (int i = 0; i < num_trials; i++) {
         MPI_Barrier(MPI_COMM_WORLD);
-        total_mpi_bcast_time -= MPI_Wtime();
+        total_time -= MPI_Wtime();
         MPI_Reduce_scatter(send_data.data(), &result, recvcounts.data(), MPI_INT, MPI_SUM, MPI_COMM_WORLD);
         MPI_Barrier(MPI_COMM_WORLD);
-        total_mpi_bcast_time += MPI_Wtime();
+        total_time += MPI_Wtime();
     }
-    if (rank == 0 ) std::cout << "Avg MPI_Reduce_scatter time = " << total_mpi_bcast_time << "\n";
+    if (rank == 0 ) std::cout << "Avg MPI_Reduce_scatter time = " << total_time << "\n";
 
-    total_mpi_bcast_time = 0;
+    total_time = 0;
     for (int i = 0; i < num_trials; i++) {
         MPI_Barrier(MPI_COMM_WORLD);
-        total_mpi_bcast_time -= MPI_Wtime();
+        total_time -= MPI_Wtime();
         my_reduce_scatter(send_data.data(), &result, MPI_INT, [](int a, int b) { return a + b; }, MPI_COMM_WORLD);
         MPI_Barrier(MPI_COMM_WORLD);
-        total_mpi_bcast_time += MPI_Wtime();
+        total_time += MPI_Wtime();
     }
-    if (rank == 0 ) std::cout << "Avg my_reduce_scatter time = " << total_mpi_bcast_time << "\n";
+    if (rank == 0 ) std::cout << "Avg my_reduce_scatter time = " << total_time << "\n";
 
     MPI_Finalize();
 }

@@ -15,7 +15,7 @@ MPI_Reduce_scatter complexity = 24
 my_reduce_scatter complexity = 40
 ```
 
-Tables - ↓ N_trials, → N_proc
+Tables legend : ↓ N_trials, → N_proc
 
 MPI_Reduce_scatter Execution_time: 
 
