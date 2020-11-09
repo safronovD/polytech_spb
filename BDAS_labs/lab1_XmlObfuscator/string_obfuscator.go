@@ -18,7 +18,7 @@ func createObfuscateMap(source, target []rune) map[rune]rune {
 	return result
 }
 
-func createUnbfuscateMap(source, target []rune) map[rune]rune {
+func createUnobfuscateMap(source, target []rune) map[rune]rune {
 	result := make(map[rune]rune)
 	for i, val := range target {
 		result[val] = source[i]
@@ -29,7 +29,7 @@ func createUnbfuscateMap(source, target []rune) map[rune]rune {
 
 func (obs *string_obfuscator) init(source, target []rune) {
 	obs.obfuscateMap = createObfuscateMap(target, source)
-	obs.unobfuscateMap = createUnbfuscateMap(target, source)
+	obs.unobfuscateMap = createUnobfuscateMap(target, source)
 }
 
 func (obs string_obfuscator) obfuscate(s string) string {
